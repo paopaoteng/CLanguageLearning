@@ -1,0 +1,17 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+binsearch	binsearch.c	/^int binsearch(int x, int v[], int n)$/;"	f	signature:(int x, int v[], int n)
+main	atoitest.c	/^int main()$/;"	f
+main	binsearch.c	/^int main()$/;"	f
+main	itoatest.c	/^int main()$/;"	f
+main	switchtest.c	/^int main()$/;"	f
+reverse	itoatest.c	/^void reverse(char s[])$/;"	f	signature:(char s[])
+rtatoi	atoitest.c	/^int rtatoi(char s[])$/;"	f	signature:(char s[])
+rtbinsearch	binsearch.c	/^int rtbinsearch(int x, int v[], int n)$/;"	f	signature:(int x, int v[], int n)
+rtitoa	itoatest.c	/^void rtitoa(int n, char s[])$/;"	f	signature:(int n, char s[])
+rtitoa2	itoatest.c	/^void rtitoa2(int n, char s[], int l)$/;"	f	signature:(int n, char s[], int l)
+rtitob	itoatest.c	/^void rtitob(int n, char s[], int base)$/;"	f	signature:(int n, char s[], int base)

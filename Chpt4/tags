@@ -1,0 +1,51 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+-c-kinds	makefile	/^	ctags -R --c-kinds=+p --fields=+S$/;"	m
+BUFSIZE	calc.c	7;"	d	file:
+MAX	calculator.c	3;"	d	file:
+MAXLINE	greptest.c	3;"	d	file:
+MAXOP	calc.c	5;"	d	file:
+MAXVAL	calc.c	8;"	d	file:
+NUMBER	calc.c	6;"	d	file:
+buf	calc.c	/^char buf[BUFSIZE];$/;"	v
+bufp	calc.c	/^int bufp = 0;$/;"	v
+calc	calculator.c	/^double calc(double a, double b, char c)$/;"	f	signature:(double a, double b, char c)
+calc	calculator.c	/^double calc(double a, double b, char c);$/;"	p	file:	signature:(double a, double b, char c)
+calcres	calculator.c	/^double calcres(char s[])$/;"	f	signature:(char s[])
+digit	calculator.c	/^double digit[MAX];$/;"	v
+getch	calc.c	/^int getch()$/;"	f
+getch	calc.c	/^int getch(void);$/;"	p	file:	signature:(void)
+getop	calc.c	/^int getop(char s[])$/;"	f	signature:(char s[])
+getop	calc.c	/^int getop(char s[]);$/;"	p	file:	signature:(char s[])
+getop	calculator.c	/^char * getop(char s[], char r[])$/;"	f	signature:(char s[], char r[])
+index	calculator.c	/^int index = 0;$/;"	v
+main	atoftest.c	/^int main()$/;"	f
+main	calc.c	/^int main()$/;"	f
+main	calculator.c	/^int main()$/;"	f
+main	greptest.c	/^main()$/;"	f
+mygetline	greptest.c	/^int mygetline(char line[], int max);$/;"	p	file:	signature:(char line[], int max)
+mygetline	greptest.c	/^int mygetline(char s[], int lim)$/;"	f	signature:(char s[], int lim)
+pattern	greptest.c	/^char pattern[] = "ould";$/;"	v
+pop	calc.c	/^double pop(void)$/;"	f	signature:(void)
+pop	calc.c	/^double pop(void);$/;"	p	file:	signature:(void)
+pop	calculator.c	/^double pop(void)$/;"	f	signature:(void)
+pop	calculator.c	/^double pop(void);$/;"	p	file:	signature:(void)
+push	calc.c	/^void push(double f)$/;"	f	signature:(double f)
+push	calc.c	/^void push(double x);$/;"	p	file:	signature:(double x)
+push	calculator.c	/^void push(double x)$/;"	f	signature:(double x)
+push	calculator.c	/^void push(double x);$/;"	p	file:	signature:(double x)
+rtatof	atoftest.c	/^double rtatof(char s[])$/;"	f	signature:(char s[])
+rtatof	calculator.c	/^double rtatof(char s[])$/;"	f	signature:(char s[])
+rtatoi	atoftest.c	/^int rtatoi(char s[])$/;"	f	signature:(char s[])
+sp	calc.c	/^int sp = 0;$/;"	v
+strindex	greptest.c	/^int strindex(char s[], char t[])$/;"	f	signature:(char s[], char t[])
+strindex	greptest.c	/^int strindex(char source[], char searchfor[]);$/;"	p	file:	signature:(char source[], char searchfor[])
+strindexr	greptest.c	/^int strindexr(char s[], char t[])$/;"	f	signature:(char s[], char t[])
+strindexr	greptest.c	/^int strindexr(char source[], char searchfor[]);$/;"	p	file:	signature:(char source[], char searchfor[])
+ungetch	calc.c	/^void ungetch(int c)$/;"	f	signature:(int c)
+ungetch	calc.c	/^void ungetch(int);$/;"	p	file:	signature:(int)
+val	calc.c	/^double val[MAXVAL];$/;"	v
