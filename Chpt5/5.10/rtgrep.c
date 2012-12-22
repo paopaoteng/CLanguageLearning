@@ -8,22 +8,59 @@ int main(int argc, char *argv[])
 {
 	char line[MAXLEN];
 	int found = 0;
+	long lineno = 0;
+	int except = 0;
+	int number = 0;
+	char c;
+	char *p;
+	int i = 1;
+	int j = 1;
 	
-	if(argc != 2)
+	/*p指向外部调用输入的参数*/
+	while(--argc > 0 && (p = argv[i++], p[0] == '-'))
 	{
-		printf("Usage:find pattern\n");
+		/*c为p的第j个字符*/
+		while(c = p[j++])
+		{
+			switch(c)
+			{
+				case 'x':
+					except = 1;
+					break;
+				case 'n':
+					number = 1;
+					break;
+				default:
+					printf("find: illegal option %c\n", c);
+					argc = 0;
+					found = -1;
+					break;
+			}
+		}
+	}
+
+	if(argc != 1)
+	{
+		printf("Usage: find -x -n pattern\n");
 	}
 	else
 	{
 		while(rt_getline(line, MAXLEN) > 0)
 		{
-			if(strstr(line, argv[1]) != NULL)
+			lineno++;
+			/*except为0，显示包含，为1，显示不包含*/
+			if((strstr(line, p) != NULL) != except)
 			{
+				if(number)
+				{
+					printf("%ld:", lineno);
+				}
 				printf("%s", line);
 				found++;
 			}
 		}
 	}
+
 	return found;
 }
 
