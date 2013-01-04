@@ -22,7 +22,7 @@ unsigned rightrot(unsigned x,int n)
 {
 	unsigned l = sizeof(x) * 8;
 	n %= l;
-	return (~(~0 << n) & x) << (l - n) | x >> n;
+	return x << (l - n) | x >> n;
 }
 
 unsigned bitcount(unsigned x)
