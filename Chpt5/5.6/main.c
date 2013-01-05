@@ -3,22 +3,28 @@
 #include<stdlib.h>
 
 #define MAXLINES 5000            /* 进行排序的最大文本行数*/
+#define MAXLEN 1000          /*每个输入文本行的最大长度*/
 
 char *lineptr[MAXLINES];         /*指向文本行的指针数组*/
 
-int readlines(char *lineprt[], int nlines);
-void writelines(char *lineptr[], int nlines);
+int readlines(char lineprt[][MAXLEN], int nlines);
+void writelines(char lineptr[][MAXLEN], int nlines);
 
 void rt_qsort(char *lineptr[], int left, int right);
 
 int main()
 {
-	int nlines;
+	int nlines,i;
+	char str[MAXLINES][MAXLEN];
 	
-	if((nlines = readlines(lineptr, MAXLINES)) >= 0)
+	if((nlines = readlines(str, MAXLINES)) >= 0)
 	{
+		for(i = 0;i < nlines;i++)
+		{
+			lineptr[i] = str[i];
+		}
 		rt_qsort(lineptr, 0, nlines - 1);
-		writelines(lineptr, nlines);
+		writelines(str, nlines);
 		return 0;
 	}
 	else
@@ -28,37 +34,29 @@ int main()
 	}
 }
 
-#define MAXLEN 1000          /*每个输入文本行的最大长度*/
 int rt_getline(char *, int);
 char *alloc(int len);
 void rt_swap(char *v[], int i, int j);
 
 
 /*readlines函数：读取输入行*/
-int readlines(char *lineptr[], int maxlines)
+int readlines(char lineptr[][MAXLEN], int maxlines)
 {
 	int len, nlines;
-	char *p, line[MAXLEN];
 
 	nlines = 0;
-	while((len = rt_getline(line, MAXLEN)) > 0)
+	while((len = rt_getline(lineptr[nlines], MAXLEN)) > 0)
 	{
-		if(nlines >= maxlines || (p = alloc(len)) == NULL)
+		if(nlines >= maxlines)
 		{
 			return -1;
 		}
-		else
-		{
-			line[len - 1] = '\0';
-			strcpy(p, line);
-			lineptr[nlines] = p;
-			nlines++;
-		}
+		nlines++;
 	}
 	return nlines;
 }
 
-void writelines(char *lineptr[], int nlines)
+void writelines(char lineptr[][MAXLEN], int nlines)
 {
 	while(nlines--)
 	{
