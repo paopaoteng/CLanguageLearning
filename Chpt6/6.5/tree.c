@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<ctype.h>
 #include<string.h>
+#include<stdlib.h>
+#include "../../comm/getch.h"
 
 #define MAXWORD 100
 
@@ -17,7 +19,8 @@ struct tnode *addtree(struct tnode *, char *);
 void treeprint(struct tnode *);
 int getword(char *,int );
 struct tnode *talloc(void);
-char *strdup(char *);
+//char *strdup(char *s);
+struct tnode *talloc(void);
 
 int main(int argc, char *argv[])
 {
@@ -40,7 +43,7 @@ struct tnode *talloc(void)
 {
 	return (struct tnode *)malloc(sizeof(struct tnode));
 }
-
+/*
 char *strdup(char *s)
 {
 	char *p;
@@ -51,7 +54,7 @@ char *strdup(char *s)
 	}
 	return p;
 }
-
+*/
 struct tnode *addtree(struct tnode *p, char *w)
 {
 	int cond;
@@ -79,28 +82,40 @@ struct tnode *addtree(struct tnode *p, char *w)
 	return p;
 }
 
-void printtree(struct tnode *p)
+void treeprint(struct tnode *p)
 {
 	if(p != NULL)
 	{
-		printtree(p->left);
+		treeprint(p->left);
 		printf("%4d %s\n", p->count, p->word);
-		printtree(p->right);
+		treeprint(p->right);
 	}
 }
 
-int getword(char *w, int lim)
+int getword(char *word, int lim)
 {
 	int c;
+	char *w = word;
 
 	while(isspace(c = getch()))
 		;
-	if(c == EOF)
+	if(c != EOF)
+		*w++ = c;
+
+	if(!isalpha(c))
 	{
 		*w = '\0';
 		return c;
 	}
 
-	*w++ = c;
-	
+	for(;--lim > 0;w++)
+	{
+		if(!isalnum(*w = getch()))
+		{
+			ungetch(*w);
+			break;
+		}
+	}
+	*w = '\0';
+	return word[0];
 }
